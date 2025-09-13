@@ -1,0 +1,207 @@
+/* CoordinateSearchBox Component Styles */
+
+.coordinate-search-box {
+  max-width: 600px;
+  margin: 0 auto;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 
+               'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', 
+               sans-serif;
+}
+
+/* Input Container */
+.search-input-container {
+  position: relative;
+  margin-bottom: 1rem;
+}
+
+.coordinate-input {
+  width: 100%;
+  padding: 12px 16px;
+  font-size: 16px;
+  border: 2px solid #e1e5e9;
+  border-radius: 8px;
+  box-sizing: border-box;
+  transition: border-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+  background-color: #ffffff;
+}
+
+.coordinate-input:focus {
+  outline: none;
+  border-color: #007bff;
+  box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.1);
+}
+
+.coordinate-input.success {
+  border-color: #28a745;
+}
+
+.coordinate-input.error {
+  border-color: #dc3545;
+}
+
+/* Status Indicator */
+.status-indicator {
+  display: flex;
+  align-items: center;
+  margin-top: 8px;
+  font-size: 14px;
+  gap: 8px;
+}
+
+.status-indicator.success {
+  color: #28a745;
+}
+
+.status-indicator.error {
+  color: #dc3545;
+}
+
+.status-icon {
+  font-weight: bold;
+  font-size: 16px;
+}
+
+.status-message {
+  font-weight: 500;
+}
+
+/* Conversions Panel */
+.conversions-panel {
+  background-color: #f8f9fa;
+  border: 1px solid #e9ecef;
+  border-radius: 8px;
+  padding: 16px;
+  margin-bottom: 1rem;
+}
+
+.conversions-panel h4 {
+  margin: 0 0 12px 0;
+  font-size: 16px;
+  font-weight: 600;
+  color: #495057;
+}
+
+.conversion-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.conversion-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 12px;
+  background-color: #ffffff;
+  border: 1px solid #dee2e6;
+  border-radius: 6px;
+  font-size: 14px;
+}
+
+.conversion-format {
+  font-weight: 500;
+  color: #495057;
+  min-width: 0;
+  flex: 1;
+}
+
+.conversion-value {
+  font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+  color: #007bff;
+  font-weight: 500;
+  margin-left: 12px;
+  text-align: right;
+  min-width: 0;
+  flex: 1;
+  word-break: break-all;
+}
+
+/* Coordinate Info Panel */
+.coordinate-info {
+  background-color: #e3f2fd;
+  border: 1px solid #bbdefb;
+  border-radius: 8px;
+  padding: 16px;
+}
+
+.coordinate-info h4 {
+  margin: 0 0 12px 0;
+  font-size: 16px;
+  font-weight: 600;
+  color: #1565c0;
+}
+
+.coordinate-details {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.coordinate-details div {
+  font-size: 14px;
+  color: #1976d2;
+}
+
+.coordinate-details strong {
+  color: #0d47a1;
+  font-weight: 600;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .coordinate-search-box {
+    max-width: 100%;
+    padding: 0 16px;
+  }
+  
+  .coordinate-input {
+    font-size: 16px; /* Prevent zoom on iOS */
+  }
+  
+  .conversion-item {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+  }
+  
+  .conversion-value {
+    margin-left: 0;
+    text-align: left;
+    font-size: 13px;
+  }
+}
+
+@media (max-width: 480px) {
+  .conversions-panel,
+  .coordinate-info {
+    padding: 12px;
+  }
+  
+  .conversion-item {
+    padding: 6px 10px;
+  }
+}
+
+/* Focus and Accessibility */
+.coordinate-input:focus-visible {
+  outline: 2px solid #007bff;
+  outline-offset: 2px;
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .coordinate-input {
+    border-width: 3px;
+  }
+  
+  .conversion-item {
+    border-width: 2px;
+  }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  .coordinate-input {
+    transition: none;
+  }
+}
