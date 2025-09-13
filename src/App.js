@@ -12,34 +12,34 @@ function App() {
 
   const testCoordinates = [
     {
-      name: 'New York City (DD)',
-      value: '40.7128, -74.0060',
+      name: 'Stockholm (DD)',
+      value: '59.3039747, 18.0628513',
       description: 'Decimalgrader format'
     },
     {
-      name: 'London (GMS)',
-      value: '51°30\'26"N, 0°7\'39"W',
+      name: 'Fårösund (GMS)',
+      value: '57°51\'56"N, 19°3\'11"Ö',
       description: 'Grader Minuter Sekunder format'
     },
     {
-      name: 'Sydney (GDM)',
-      value: '33°52.08\'S, 151°12.48\'E',
+      name: 'Värmdö (GDM)',
+      value: '59°18.074\'N, 18°40.743\'Ö',
       description: 'Grader Decimalminuter format'
     },
     {
-      name: 'Tokyo (Blandat)',
-      value: '35.6762, 139°41\'30"E',
+      name: 'Bua (Blandat)',
+      value: '57.2411118, 12°6\'25"Ö',
       description: 'Blandade format (DD latitud, GMS longitud)'
     },
     {
       name: 'Enstaka koordinat (DD)',
-      value: '59.3293',
-      description: 'Enstaka decimalgrad koordinat'
+      value: '57.2411118',
+      description: 'Enstaka decimalgrad koordinat (latitud)'
     },
     {
       name: 'Enstaka koordinat (GMS)',
-      value: '40°42\'46"N',
-      description: 'Enstaka GMS koordinat'
+      value: '18°3\'46"Ö',
+      description: 'Enstaka GMS koordinat (longitud)'
     }
   ];
 
@@ -66,7 +66,7 @@ function App() {
         <section className="converter-section">
           <CoordinateSearchBox
             onCoordinateChange={handleCoordinateChange}
-            placeholder="Ange koordinater (t.ex. 40.7128, -74.0060 eller 40°42'46&quot;N, 74°0'21&quot;V)"
+            placeholder="Ange koordinater (t.ex. 59.3039747, 18.0628513 eller 57°51'56\"N, 19°3'11\"Ö)"
             showConversions={true}
           />
         </section>

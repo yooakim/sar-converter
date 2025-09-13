@@ -24,7 +24,7 @@ import './CoordinateSearchBox.css';
  */
 const CoordinateSearchBox = ({ 
   onCoordinateChange, 
-  placeholder = "Ange koordinater (t.ex. 40.7128, -74.0060)",
+  placeholder = "Ange koordinater (t.ex. 59.3039747, 18.0628513)",
   showConversions = true,
   className = ""
 }) => {
