@@ -70,7 +70,7 @@ function App() {
           </h2>
           <CoordinateSearchBox
             onCoordinateChange={handleCoordinateChange}
-            placeholder="Ange koordinater (t.ex. 59.3039747, 18.0628513 eller 57°51'56&quot;N, 19°3'11&quot;Ö)"
+            placeholder="Ange koordinater (t.ex. 59.3039747, 18.0628513 eller 57°51'56&quot;N, 19°3'11&quot;E)"
             showConversions={true}
             externalValue={exampleValue}
           />
@@ -131,7 +131,7 @@ function App() {
               <p>Enkelt decimalformat med positiva/negativa värden</p>
               <div className="format-examples">
                 <div>40.7128, -74.0060</div>
-                <div>40.7128N, 74.0060V</div>
+                <div>40.7128N, 74.0060W</div>
                 <div>-33.8688, 151.2093</div>
               </div>
             </div>
@@ -140,9 +140,9 @@ function App() {
               <h3>Grader Minuter Sekunder (GMS)</h3>
               <p>Traditionellt format med grader, minuter och sekunder</p>
               <div className="format-examples">
-                <div>40°42'46"N, 74°0'21"V</div>
-                <div>51°30'26"N, 0°7'39"V</div>
-                <div>40 42 46 N, 74 0 21 V</div>
+                <div>40°42'46"N, 74°0'21"W</div>
+                <div>51°30'26"N, 0°7'39"W</div>
+                <div>40 42 46 N, 74 0 21 W</div>
               </div>
             </div>
 
@@ -150,9 +150,9 @@ function App() {
               <h3>Grader Decimalminuter (GDM)</h3>
               <p>Grader med decimalminuter</p>
               <div className="format-examples">
-                <div>40°42.767'N, 74°0.35'V</div>
+                <div>40°42.767'N, 74°0.35'W</div>
                 <div>33°52.08'S, 151°12.48'E</div>
-                <div>40 42.767 N, 74 0.35 V</div>
+                <div>40 42.767 N, 74 0.35 W</div>
               </div>
             </div>
           </div>
