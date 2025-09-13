@@ -1,4 +1,4 @@
-import React, { useState, useCallback, useMemo } from 'react';
+import React, { useState, useCallback, useMemo, useEffect } from 'react';
 import { 
   parseCoordinatePair, 
   parseCoordinate, 
@@ -26,7 +26,8 @@ const CoordinateSearchBox = ({
   onCoordinateChange, 
   placeholder = "Ange koordinater (t.ex. 59.3039747, 18.0628513)",
   showConversions = true,
-  className = ""
+  className = "",
+  externalValue = null
 }) => {
   const [input, setInput] = useState('');
   const [parseResult, setParseResult] = useState(null);
@@ -87,6 +88,14 @@ const CoordinateSearchBox = ({
       onCoordinateChange && onCoordinateChange(null);
     }
   }, [onCoordinateChange]);
+
+  // Handle external value changes (from example buttons)
+  useEffect(() => {
+    if (externalValue !== null && externalValue !== input) {
+      const fakeEvent = { target: { value: externalValue } };
+      handleInputChange(fakeEvent);
+    }
+  }, [externalValue, handleInputChange]);
 
   // Generate format conversions for display
   const conversions = useMemo(() => {

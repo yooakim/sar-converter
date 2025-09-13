@@ -1,55 +1,53 @@
-import React, { useState } from 'react';
-import CoordinateSearchBox from './components/CoordinateSearchBox';
-import './App.css';
+import React, { useState } from "react";
+import CoordinateSearchBox from "./components/CoordinateSearchBox";
+import "./App.css";
 
 function App() {
   const [coordinateResult, setCoordinateResult] = useState(null);
+  const [exampleValue, setExampleValue] = useState(null);
 
   const handleCoordinateChange = (result) => {
     setCoordinateResult(result);
-    console.log('Coordinate changed:', result);
+    console.log("Coordinate changed:", result);
   };
 
   const testCoordinates = [
     {
-      name: 'Stockholm (DD)',
-      value: '59.3039747, 18.0628513',
-      description: 'Decimalgrader format'
+      name: "Stockholm (DD)",
+      value: "59.3039747, 18.0628513",
+      description: "Decimalgrader format",
     },
     {
-      name: 'Fårösund (GMS)',
-      value: '57°51\'56"N, 19°3\'11"Ö',
-      description: 'Grader Minuter Sekunder format'
+      name: "Fårösund (GMS)",
+      value: "57°51'56\"N, 19°3'11\"E",
+      description: "Grader Minuter Sekunder format",
     },
     {
-      name: 'Värmdö (GDM)',
-      value: '59°18.074\'N, 18°40.743\'Ö',
-      description: 'Grader Decimalminuter format'
+      name: "Värmdö (GDM)",
+      value: "59°18.074'N, 18°40.743'E",
+      description: "Grader Decimalminuter format",
     },
     {
-      name: 'Bua (Blandat)',
-      value: '57.2411118, 12°6\'25"Ö',
-      description: 'Blandade format (DD latitud, GMS longitud)'
+      name: "Bua (Blandat)",
+      value: "57.2411118, 12°6'25\"E",
+      description: "Blandade format (DD latitud, GMS longitud)",
     },
     {
-      name: 'Enstaka koordinat (DD)',
-      value: '57.2411118',
-      description: 'Enstaka decimalgrad koordinat (latitud)'
+      name: "Enstaka koordinat (DD)",
+      value: "57.2411118",
+      description: "Enstaka decimalgrad koordinat (latitud)",
     },
     {
-      name: 'Enstaka koordinat (GMS)',
-      value: '18°3\'46"Ö',
-      description: 'Enstaka GMS koordinat (longitud)'
-    }
+      name: "Enstaka koordinat (GMS)",
+      value: "18°3'46\"E",
+      description: "Enstaka GMS koordinat (longitud)",
+    },
   ];
 
   const fillExample = (value) => {
-    // Trigger the input change by dispatching an event
-    const input = document.querySelector('.coordinate-input');
-    if (input) {
-      input.value = value;
-      input.dispatchEvent(new Event('input', { bubbles: true }));
-    }
+    setExampleValue(value);
+    // Reset the external value after a short delay to allow for new examples
+    setTimeout(() => setExampleValue(null), 100);
   };
 
   return (
@@ -57,8 +55,8 @@ function App() {
       <header className="App-header">
         <h1>SSRS Koordinatkonverterare</h1>
         <p>
-          Ange koordinater i valfritt format: Decimalgrader (DD), 
-          Grader Minuter Sekunder (GMS), eller Grader Decimalminuter (GDM)
+          Ange koordinater i valfritt format: Decimalgrader (DD), Grader Minuter
+          Sekunder (GMS), eller Grader Decimalminuter (GDM)
         </p>
       </header>
 
@@ -68,6 +66,7 @@ function App() {
             onCoordinateChange={handleCoordinateChange}
             placeholder="Ange koordinater (t.ex. 59.3039747, 18.0628513 eller 57°51'56&quot;N, 19°3'11&quot;Ö)"
             showConversions={true}
+            externalValue={exampleValue}
           />
         </section>
 
@@ -79,7 +78,7 @@ function App() {
                 <h3>{coord.name}</h3>
                 <p className="example-description">{coord.description}</p>
                 <div className="example-coordinate">{coord.value}</div>
-                <button 
+                <button
                   className="try-example-btn"
                   onClick={() => fillExample(coord.value)}
                 >
@@ -111,7 +110,7 @@ function App() {
                 <div>-33.8688, 151.2093</div>
               </div>
             </div>
-            
+
             <div className="format-card">
               <h3>Grader Minuter Sekunder (GMS)</h3>
               <p>Traditionellt format med grader, minuter och sekunder</p>
@@ -121,13 +120,13 @@ function App() {
                 <div>40 42 46 N, 74 0 21 V</div>
               </div>
             </div>
-            
+
             <div className="format-card">
               <h3>Grader Decimalminuter (GDM)</h3>
               <p>Grader med decimalminuter</p>
               <div className="format-examples">
                 <div>40°42.767'N, 74°0.35'V</div>
-                <div>33°52.08'S, 151°12.48'Ö</div>
+                <div>33°52.08'S, 151°12.48'E</div>
                 <div>40 42.767 N, 74 0.35 V</div>
               </div>
             </div>
@@ -137,8 +136,8 @@ function App() {
 
       <footer className="App-footer">
         <p>
-          Byggd för koordinatkonvertering och parsning. 
-          Stöder plattformsoberoende geografiska koordinatformat.
+          Byggd för koordinatkonvertering och parsning. Stöder
+          plattformsoberoende geografiska koordinatformat.
         </p>
       </footer>
     </div>
