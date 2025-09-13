@@ -66,7 +66,7 @@ function App() {
         <section className="converter-section">
           <CoordinateSearchBox
             onCoordinateChange={handleCoordinateChange}
-            placeholder="Ange koordinater (t.ex. 59.3039747, 18.0628513 eller 57°51'56\"N, 19°3'11\"Ö)"
+            placeholder="Ange koordinater (t.ex. 59.3039747, 18.0628513 eller 57°51'56&quot;N, 19°3'11&quot;Ö)"
             showConversions={true}
           />
         </section>
