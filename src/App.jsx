@@ -14,7 +14,7 @@ function App() {
   const testCoordinates = [
     {
       name: "Stockholm (DD)",
-      value: "59.3039747, 18.0628513",
+      value: "59.303965,18.0812836",
       description: "Decimalgrader format",
     },
     {
