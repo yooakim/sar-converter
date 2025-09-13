@@ -52,7 +52,7 @@ function App() {
 
   return (
     <div className="App">
-      <header className="App-header">
+      <header className="App-header" role="banner">
         <h1>SSRS Koordinatkonverterare</h1>
         <p>
           Ange koordinater i valfritt format: Decimalgrader (DD), Grader Minuter
@@ -60,8 +60,9 @@ function App() {
         </p>
       </header>
 
-      <main className="App-main">
-        <section className="converter-section">
+      <main className="App-main" role="main">
+        <section className="converter-section" aria-labelledby="converter-heading">
+          <h2 id="converter-heading" className="visually-hidden">Koordinatkonverterare</h2>
           <CoordinateSearchBox
             onCoordinateChange={handleCoordinateChange}
             placeholder="Ange koordinater (t.ex. 59.3039747, 18.0628513 eller 57°51'56&quot;N, 19°3'11&quot;Ö)"
@@ -70,36 +71,37 @@ function App() {
           />
         </section>
 
-        <section className="examples-section">
-          <h2>Prova dessa exempel:</h2>
-          <div className="examples-grid">
+        <section className="examples-section" aria-labelledby="examples-heading">
+          <h2 id="examples-heading">Prova dessa exempel:</h2>
+          <div className="examples-grid" role="group" aria-label="Exempel på koordinatformat">
             {testCoordinates.map((coord, index) => (
-              <div key={index} className="example-card">
+              <article key={index} className="example-card">
                 <h3>{coord.name}</h3>
                 <p className="example-description">{coord.description}</p>
-                <div className="example-coordinate">{coord.value}</div>
+                <div className="example-coordinate" aria-label={`Exempel koordinat: ${coord.value}`}>{coord.value}</div>
                 <button
                   className="try-example-btn"
                   onClick={() => fillExample(coord.value)}
+                  aria-label={`Prova exempel för ${coord.name}`}
                 >
                   Prova detta exempel
                 </button>
-              </div>
+              </article>
             ))}
           </div>
         </section>
 
         {coordinateResult && (
-          <section className="result-section">
-            <h2>Aktuellt resultat:</h2>
-            <div className="result-display">
-              <pre>{JSON.stringify(coordinateResult, null, 2)}</pre>
+          <section className="result-section" aria-labelledby="result-heading">
+            <h2 id="result-heading">Aktuellt resultat:</h2>
+            <div className="result-display" role="region" aria-label="Konverteringsresultat">
+              <pre aria-label="JSON-formaterat resultat">{JSON.stringify(coordinateResult, null, 2)}</pre>
             </div>
           </section>
         )}
 
-        <section className="info-section">
-          <h2>Format som stöds:</h2>
+        <section className="info-section" aria-labelledby="formats-heading">
+          <h2 id="formats-heading">Format som stöds:</h2>
           <div className="format-info">
             <div className="format-card">
               <h3>Decimalgrader (DD)</h3>
@@ -134,7 +136,7 @@ function App() {
         </section>
       </main>
 
-      <footer className="App-footer">
+      <footer className="App-footer" role="contentinfo">
         <p>
           Byggd för koordinatkonvertering och parsning. Stöder
           plattformsoberoende geografiska koordinatformat.

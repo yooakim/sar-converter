@@ -23,6 +23,8 @@
   box-sizing: border-box;
   transition: border-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
   background-color: #ffffff;
+  min-height: 48px; /* Ensure minimum touch target */
+  touch-action: manipulation;
 }
 
 .coordinate-input:focus {
@@ -178,7 +180,34 @@
   }
   
   .conversion-item {
-    padding: 6px 10px;
+    padding: 8px 10px;
+    font-size: 13px;
+  }
+  
+  .coordinate-input {
+    padding: 14px 16px;
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 360px) {
+  .coordinate-search-box {
+    padding: 0 8px;
+  }
+  
+  .conversions-panel,
+  .coordinate-info {
+    padding: 10px;
+  }
+  
+  .conversion-item {
+    padding: 6px 8px;
+    font-size: 12px;
+  }
+  
+  .conversion-format,
+  .conversion-value {
+    font-size: 12px;
   }
 }
 

@@ -3,15 +3,31 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="theme-color" content="#000000" />
-    <meta
-      name="description"
-      content="SSRS Koordinatkonverterare - Parsning och konvertering av geografiska koordinater mellan DD, GMS och GDM format"
-    />
+    <meta name="theme-color" content="#667eea" />
+    <meta name="description" content="SSRS Koordinatkonverterare - Parsning och konvertering av geografiska koordinater mellan DD, GMS och GDM format" />
+    <meta name="keywords" content="koordinater, GPS, SSRS, GMS, DD, GDM, grader, minuter, sekunder, Sverige" />
+    <meta name="author" content="SSRS" />
+    
+    <!-- PWA and mobile app meta tags -->
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+    <meta name="apple-mobile-web-app-title" content="SSRS Koordinater" />
+    
+    <!-- Favicon and app icons -->
+    <link rel="icon" type="image/x-icon" href="%PUBLIC_URL%/favicon.ico" />
+    <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
+    
     <title>SSRS Koordinatkonverterare</title>
   </head>
   <body>
-    <noscript>Du måste aktivera JavaScript för att köra denna applikation.</noscript>
+    <noscript>
+      <div style="padding: 2rem; text-align: center; font-family: Arial, sans-serif;">
+        <h1>JavaScript krävs</h1>
+        <p>Du måste aktivera JavaScript för att köra denna applikation.</p>
+        <p>Denna webbplats använder JavaScript för att konvertera koordinater mellan olika format.</p>
+      </div>
+    </noscript>
     <div id="root"></div>
   </body>
 </html>

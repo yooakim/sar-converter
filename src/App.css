@@ -4,6 +4,19 @@
   box-sizing: border-box;
 }
 
+/* Accessibility */
+.visually-hidden {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  clip: rect(0, 0, 0, 0) !important;
+  white-space: nowrap !important;
+  border: 0 !important;
+}
+
 .App {
   min-height: 100vh;
   background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
@@ -117,12 +130,14 @@
   color: white;
   border: none;
   border-radius: 8px;
-  padding: 0.75rem 1.5rem;
+  padding: 0.875rem 1.5rem;
   font-size: 0.9rem;
   font-weight: 500;
   cursor: pointer;
   transition: all 0.2s ease;
   width: 100%;
+  min-height: 44px; /* Ensure minimum touch target size */
+  touch-action: manipulation; /* Improve touch responsiveness */
 }
 
 .try-example-btn:hover {
@@ -133,6 +148,15 @@
 
 .try-example-btn:active {
   transform: translateY(0);
+}
+
+.try-example-btn:focus-visible {
+  outline: 2px solid #ffffff;
+  outline-offset: 2px;
+}
+
+.try-example-btn:focus {
+  box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.3);
 }
 
 /* Result Section */
@@ -238,6 +262,13 @@
 }
 
 /* Responsive Design */
+@media (max-width: 1024px) {
+  .examples-grid,
+  .format-info {
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  }
+}
+
 @media (max-width: 768px) {
   .App-header h1 {
     font-size: 2rem;
@@ -281,6 +312,30 @@
   .example-card,
   .format-card {
     padding: 1rem;
+  }
+  
+  /* Improve touch targets on small screens */
+  .try-example-btn {
+    padding: 1rem 1.5rem;
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 360px) {
+  .App-header h1 {
+    font-size: 1.25rem;
+  }
+  
+  .App-main {
+    padding: 0.75rem;
+  }
+  
+  .converter-section,
+  .result-section,
+  .example-card,
+  .format-card {
+    padding: 0.75rem;
+    border-radius: 8px;
   }
 }
 
