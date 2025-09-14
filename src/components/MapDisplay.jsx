@@ -32,6 +32,12 @@ const MapDisplay = ({ coordinateResult, className = "" }) => {
     return parseFloat(value).toFixed(precision);
   };
 
+  // Function to open SSRS map in new window
+  const openSSRSMap = () => {
+    const url = `https://maps.ssrs.se/go?q=${latitude},${longitude}`;
+    window.open(url, '_blank', 'noopener,noreferrer');
+  };
+
   return (
     <div className={`map-display ${className}`}>
       <div className="map-header">
@@ -39,6 +45,13 @@ const MapDisplay = ({ coordinateResult, className = "" }) => {
         <p className="coordinates-display">
           Lat: {formatCoordinate(latitude)}, Lng: {formatCoordinate(longitude)}
         </p>
+        <button 
+          className="ssrs-map-btn"
+          onClick={openSSRSMap}
+          title="Öppna i SSRS Händelsekarta"
+        >
+          📍 Visa i SSRS Händelsekarta
+        </button>
       </div>
       
       <div className="map-container">

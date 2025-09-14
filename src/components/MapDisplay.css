@@ -21,7 +21,7 @@
 }
 
 .coordinates-display {
-  margin: 0;
+  margin: 0 0 1rem 0;
   color: #6b7280;
   font-size: 0.875rem;
   font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
@@ -29,6 +29,43 @@
   padding: 0.5rem 1rem;
   border-radius: 6px;
   display: inline-block;
+}
+
+.ssrs-map-btn {
+  background: linear-gradient(135deg, #3b82f6, #2563eb);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 0.75rem 1.5rem;
+  font-size: 0.9rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  min-height: 44px;
+  touch-action: manipulation;
+  box-shadow: 0 2px 4px rgba(59, 130, 246, 0.3);
+}
+
+.ssrs-map-btn:hover {
+  background: linear-gradient(135deg, #2563eb, #1d4ed8);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 8px rgba(59, 130, 246, 0.4);
+}
+
+.ssrs-map-btn:active {
+  transform: translateY(0);
+}
+
+.ssrs-map-btn:focus-visible {
+  outline: 2px solid #ffffff;
+  outline-offset: 2px;
+}
+
+.ssrs-map-btn:focus {
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.3);
 }
 
 .map-container {
@@ -75,6 +112,13 @@
     font-size: 0.75rem;
     padding: 0.375rem 0.75rem;
   }
+  
+  .ssrs-map-btn {
+    padding: 0.875rem 1.25rem;
+    font-size: 0.85rem;
+    width: 100%;
+    justify-content: center;
+  }
 }
 
 /* Dark mode support */
@@ -96,5 +140,15 @@
   
   .popup-content strong {
     color: #1f2937;
+  }
+  
+  .ssrs-map-btn {
+    background: linear-gradient(135deg, #3b82f6, #2563eb);
+    box-shadow: 0 2px 4px rgba(59, 130, 246, 0.4);
+  }
+  
+  .ssrs-map-btn:hover {
+    background: linear-gradient(135deg, #2563eb, #1d4ed8);
+    box-shadow: 0 4px 8px rgba(59, 130, 246, 0.5);
   }
 }
