@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import CoordinateSearchBox from "./components/CoordinateSearchBox";
+import MapDisplay from "./components/MapDisplay";
 import "./App.css";
 
 function App() {
@@ -75,6 +76,8 @@ function App() {
             externalValue={exampleValue}
           />
         </section>
+
+        <MapDisplay coordinateResult={coordinateResult} />
 
         <section
           className="examples-section"
